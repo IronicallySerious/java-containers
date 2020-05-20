@@ -34,6 +34,34 @@ public class ArrayList<T>
 		m_Elements[index] = item;
 	}
 
+	public void remove(int index)
+	{
+		m_Elements[index] = null;
+
+		for(int i = index; i < m_OccupiedCount; i++)
+		{
+			m_Elements[i] = m_Elements[i + 1];
+		}
+
+		m_OccupiedCount--;
+	}
+
+	public void insert(int index, T insertion)
+	{
+		if(shouldExpand())
+		{
+			expand();
+		}
+
+		for(int i = m_OccupiedCount; i != index; i--)
+		{
+			m_Elements[i] = m_Elements[i - 1];
+		}
+
+		m_Elements[index] = insertion;
+		m_OccupiedCount++;
+	}
+
 	public String toString()
 	{
 		StringBuilder result = new StringBuilder(new String("[ "));
@@ -50,8 +78,6 @@ public class ArrayList<T>
 
 	private boolean shouldExpand()
 	{
-		// -1 is required because m_OccupiedIndex is an index.
-		// It is one below the total occupied elements.
 		return m_OccupiedCount == m_Elements.length;
 	}
 

@@ -10,12 +10,13 @@ public class Main
 
         ArrayList<String> stringArray = new ArrayList<String>();
 
-        stringArray.add("Hello,");
+        stringArray.add("Hello");
         stringArray.add("my");
         stringArray.add("name");
         stringArray.add("is");
-        stringArray.add("Serious");
-        stringArray.set(4, "Twarit");
+        stringArray.add("Twarit");
+        stringArray.set(4, "Serious");
+        stringArray.insert(2, "alias");
 
         System.out.println("ArrayList: " + stringArray);
 
