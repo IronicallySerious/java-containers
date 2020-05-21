@@ -1,4 +1,4 @@
-package containers.ArrayList;
+package containers;
 
 public class ArrayList<T>
 {
